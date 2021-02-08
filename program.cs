@@ -20,12 +20,12 @@ class Battery {
 
 
 // ------------------- Class Column ---------------------------
-class Column(id, status, amountOfFloors, amountOfElevators, servedFloors, isBasement) {
+class Column(id,status, amountOfFloors, amountOfElevators, servedFloors, isBasement) {
 
     public int ID;
     public int status; 
-    public servedFloors; //(List of floors)
-    public int amountOfElevators;
+    public int servedFloors; // to describe which floors are served by each column
+    public int amountOfElevators;  //(List of floors)
     public elevatorsList; //(Liste d’objets Elevator)
     public callButtonsList; //(Liste d’objets CallButton) Classique seulement
     public floorRequestButtonsList; //(Liste d’objets FloorRequestButton) Moderne seulement
@@ -46,8 +46,6 @@ class Elevator(id, status, amountOfFloors, currentFloor) {
 
     //mandatory functions: requestFloor(requestedFloor).-- Classique seulement
 
-
-
 }
 
 // ------------------- Class CallButton ---------------------------
@@ -58,12 +56,13 @@ class CallButton(id, status, floor, direction){
     public int direction
 }
 
-// ------------------- Class CallButton ---------------------------
+// ------------------- Class FloorRequestButton ---------------------------
 class FloorRequestButton(id, status, floor){
     public int ID;
     public int status;
-    public int floor
+    public int floor;
 }
+
 // ------------------- Class CallButton ---------------------------
 class Door(id, status){
     public int ID;
