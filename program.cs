@@ -213,31 +213,6 @@ public class Column
         elevator.move();
         elevator.operateDoors();
     }
-    
-    /*
-    // mandatory functions: requestElevator (requestedFloor, direction).
-    public Elevator requestElevator(int requestedFloor, String direction, int userCurrentFloor)
-    {
-        // if user is not at floor 1 call columnToFindUser_CurrentFloor
-        if (userCurrentFloor != 1)
-        {
-            Column columnFinded = this.columnToFindUser_CurrentFloor(userCurrentFloor);
-            // calling function ElevatorInTheChosenColumn
-            Elevator elevatorFinded = columnFinded.ElevatorInTheChosenColumn(columnFinded, requestedFloor, direction, userCurrentFloor);
-            Console.WriteLine("Elevator choosen is : " + elevatorFinded.id);
-            return elevatorFinded;
-        }// else call columnToFind_requestedFloor
-        else
-        {
-            Column columnFinded = this.columnToFind_requestedFloor(requestedFloor);
-            // calling function ElevatorInTheChosenColumn
-            Elevator elevatorFinded = columnFinded.ElevatorInTheChosenColumn(columnFinded, requestedFloor, direction, userCurrentFloor);
-            Console.WriteLine("Elevator choosen is : " + elevatorFinded.id);
-            return elevatorFinded;
-        }
-    }
-    */
-
 
     public Elevator findElevator(int requestedFloor, string requestedDirection)
     {   
@@ -477,9 +452,10 @@ class Program {
 
 }
 
+// ------------------- Class Scenarios ---------------------------
 static class Scenarios
 {       
-        public static void scenario_1()
+        public static void scenario_1() // scenario 1
     {        
         Battery battery = new Battery(1, 4, "online", 60, 6, 5);
 
@@ -518,7 +494,7 @@ static class Scenarios
         battery.assignElevator(1, 20, "up");
     }
 
- public static void scenario_2()
+ public static void scenario_2() // scenario 2
     {        
         Battery battery = new Battery(1, 4, "online", 60, 6, 5);
 
@@ -557,7 +533,7 @@ static class Scenarios
         battery.assignElevator(1, 36, "up");
     }
     
-    public static void scenario_3()
+    public static void scenario_3() // scenario 3
     {        
         Battery battery = new Battery(1, 4, "online", 60, 6, 5);
 
@@ -596,7 +572,7 @@ static class Scenarios
         battery.assignElevator(54, 1, "down");
     }
 
-    public static void scenario_4()
+    public static void scenario_4() // scenario 4
     {        
         Battery battery = new Battery(1, 4, "online", 60, 6, 5);
 
@@ -632,42 +608,9 @@ static class Scenarios
 
         battery.assignElevator(-3, 1, "up");
     }
+
+        Console.WriteLine("Column: ID = " + column.ID + "  ||  " 
+                    + "Status: " + elevators.status 
+                    + " || Floors served =  " + String.Join(", ", column.servedFloors));
+                }           
 }
-
-//==================================Scenario 1=================================================
-
-
-// SET battery TO NEW Battery WITH 1 AND 4 AND online AND 60 AND 6 AND 5 '//id, amountOfColumns, status, amountOfFloors, amountOfBasements, amountOfElevatorsPerColumn
-// SET column TO second column OF battery columnsList
-
-// bate
-
-// '//We put everything in place for the scenario
-// SET floor OF first elevator OF column elevatorsList TO 20
-// SET direction OF first elevator OF column elevatorsList TO Down
-// ADD 5 TO requestList OF first elevator OF column elevatorsList
-
-// SET floor OF second elevator OF column elevatorsList TO 3
-// SET direction OF second elevator OF column elevatorsList TO Up
-
-// ADD 15 TO requestList OF second elevator OF column elevatorsList columnsList
-
-// SET floor OF third elevator OF column elevatorsList TO 13
-// SET direction OF third elevator OF column elevatorsList TO Down
-// ADD 1 TO requestList OF third elevator OF column elevatorsList
-
-// SET floor OF fourth elevator OF column elevatorsList TO 15
-// SET direction OF fourth elevator OF column elevatorsList TO Down
-// ADD 2 TO requestList OF fourth elevator OF column elevatorsList
-
-// SET floor OF fifth elevator OF column elevatorsList TO 6
-// SET direction OF fifth elevator OF column elevatorsList TO Down
-// ADD 1 TO requestList OF fifth elevator OF column elevatorsList
-
-// '//We make the request
-// CALL battery assignElevator WITH 20 AND Up
-//==================================End Scenario 1=============================================
-//Scenario1();
-//Scenario2();
-//Scenario3();
-//Scenario4();
