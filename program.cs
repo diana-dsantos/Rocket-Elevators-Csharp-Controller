@@ -44,8 +44,7 @@ public class Battery
        this.createFloorRequestButtons(amountOfFloors);
        this.createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
    }
-
- // mandatory functions - Moderne seulement : assignElevator(requestedFloor, direction) and findBestColumn(requestedFloor).
+   
 //---------------------------------Methods--------------------------------------------//
     public void createBasementFloorRequestButtons(int amountOfBasements)
     {
@@ -118,9 +117,8 @@ public class Battery
             Thread.Sleep(200);
             var column = this.findBestColumn(currentFloor, requestedFloor);
             
-            // The floor is always 1 because that request is always made from the lobby.
             var elevator = column.findElevator(currentFloor, direction);
-            Console.WriteLine("Elevator " + elevator.name + " was selected and is going to " + currentFloor);
+           // Console.WriteLine("Elevator " + elevator.name + " was selected and is going to " + currentFloor);
 
             elevator.floorRequestList.Add(requestedFloor);
 
@@ -138,8 +136,8 @@ public class Battery
                return column;
             }
         }
-        //TODO remover
-        return this.columnsList[0];
+        
+        return this.columnsList[0];cd.
     }    
 }    
 
@@ -453,7 +451,7 @@ class Program {
 
 
 }
-
+/*
 // ------------------- Class Scenarios ---------------------------
 static class Scenarios
 {       
