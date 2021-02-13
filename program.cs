@@ -120,7 +120,8 @@ public class Battery
             
             // The floor is always 1 because that request is always made from the lobby.
             var elevator = column.findElevator(currentFloor, direction);
-            
+            Console.WriteLine("Elevator " + elevator.name + " was selected and is going to " + currentFloor);
+
             elevator.floorRequestList.Add(requestedFloor);
 
             elevator.sortFloorList();
@@ -165,6 +166,7 @@ public class Column
         this.createCallButtons(amountOfFloors, isBasement);
     }
 
+//---------------------------------Methods Column --------------------------------------------//
     public void createElevators(int amountOfFloors, int amountOfElevators)
     {
         for(int x=0; x<amountOfElevators; x++) 
@@ -317,7 +319,7 @@ public class Elevator
         this.screenDisplay = currentFloor;
     } 
     //mandatory functions: requestFloor(requestedFloor).-- Classique seulement
-    //---------------------------------Methods--------------------------------------------//
+    //---------------------------------Methods Elevators --------------------------------------------//
     
     public void move()
     {   
@@ -455,7 +457,7 @@ class Program {
 // ------------------- Class Scenarios ---------------------------
 static class Scenarios
 {       
-        public static void scenario_1() // scenario 1
+    public static void scenario_1() // scenario 1
     {        
         Battery battery = new Battery(1, 4, "online", 60, 6, 5);
 
@@ -494,7 +496,7 @@ static class Scenarios
         battery.assignElevator(1, 20, "up");
     }
 
- public static void scenario_2() // scenario 2
+    public static void scenario_2() // scenario 2
     {        
         Battery battery = new Battery(1, 4, "online", 60, 6, 5);
 
@@ -607,10 +609,5 @@ static class Scenarios
         elevatorA5.floorRequestList.Add(-6);
 
         battery.assignElevator(-3, 1, "up");
-    }
-
-        Console.WriteLine("Column: ID = " + column.ID + "  ||  " 
-                    + "Status: " + elevators.status 
-                    + " || Floors served =  " + String.Join(", ", column.servedFloors));
-                }           
+    }       
 }
